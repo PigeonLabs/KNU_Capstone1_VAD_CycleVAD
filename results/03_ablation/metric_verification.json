@@ -1,0 +1,1158 @@
+{
+  "status": "passed",
+  "method": "independent sklearn metrics and per-video event scan from published CSV",
+  "checks": [
+    {
+      "scene": "R01",
+      "seed": 42,
+      "branch": "S",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 42,
+      "branch": "S+C",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 42,
+      "branch": "S+P",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 42,
+      "branch": "S+C+P",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 42,
+      "branch": "S+C0",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 42,
+      "branch": "S+C0+P",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 42,
+      "branch": "C",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 42,
+      "branch": "P",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 42,
+      "branch": "S+C_no_conf",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 42,
+      "branch": "S+alignment",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 42,
+      "branch": "S+innovation",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 42,
+      "branch": "S+progress",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 43,
+      "branch": "S",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 43,
+      "branch": "S+C",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 43,
+      "branch": "S+P",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 43,
+      "branch": "S+C+P",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 43,
+      "branch": "S+C0",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 43,
+      "branch": "S+C0+P",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 43,
+      "branch": "C",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 43,
+      "branch": "P",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 43,
+      "branch": "S+C_no_conf",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 43,
+      "branch": "S+alignment",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 43,
+      "branch": "S+innovation",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 43,
+      "branch": "S+progress",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 44,
+      "branch": "S",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 44,
+      "branch": "S+C",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 44,
+      "branch": "S+P",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 44,
+      "branch": "S+C+P",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 44,
+      "branch": "S+C0",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 44,
+      "branch": "S+C0+P",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 44,
+      "branch": "C",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 44,
+      "branch": "P",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 44,
+      "branch": "S+C_no_conf",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 44,
+      "branch": "S+alignment",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 44,
+      "branch": "S+innovation",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 44,
+      "branch": "S+progress",
+      "partition": "final",
+      "frames": 2339,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "branch": "S",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "branch": "S+C",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "branch": "S+P",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "branch": "S+C+P",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "branch": "S+C0",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "branch": "S+C0+P",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "branch": "C",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "branch": "P",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "branch": "S+C_no_conf",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "branch": "S+alignment",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "branch": "S+innovation",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "branch": "S+progress",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 43,
+      "branch": "S",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 43,
+      "branch": "S+C",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 43,
+      "branch": "S+P",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 43,
+      "branch": "S+C+P",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 43,
+      "branch": "S+C0",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 43,
+      "branch": "S+C0+P",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 43,
+      "branch": "C",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 43,
+      "branch": "P",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 43,
+      "branch": "S+C_no_conf",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 43,
+      "branch": "S+alignment",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 43,
+      "branch": "S+innovation",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 43,
+      "branch": "S+progress",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 44,
+      "branch": "S",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 44,
+      "branch": "S+C",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 44,
+      "branch": "S+P",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 44,
+      "branch": "S+C+P",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 44,
+      "branch": "S+C0",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 44,
+      "branch": "S+C0+P",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 44,
+      "branch": "C",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 44,
+      "branch": "P",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 44,
+      "branch": "S+C_no_conf",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 44,
+      "branch": "S+alignment",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 44,
+      "branch": "S+innovation",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 44,
+      "branch": "S+progress",
+      "partition": "final",
+      "frames": 4497,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "branch": "S",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "branch": "S+C",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "branch": "S+P",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "branch": "S+C+P",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "branch": "S+C0",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "branch": "S+C0+P",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "branch": "C",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "branch": "P",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "branch": "S+C_no_conf",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "branch": "S+alignment",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "branch": "S+innovation",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "branch": "S+progress",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 43,
+      "branch": "S",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 43,
+      "branch": "S+C",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 43,
+      "branch": "S+P",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 43,
+      "branch": "S+C+P",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 43,
+      "branch": "S+C0",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 43,
+      "branch": "S+C0+P",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 43,
+      "branch": "C",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 43,
+      "branch": "P",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 43,
+      "branch": "S+C_no_conf",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 43,
+      "branch": "S+alignment",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 43,
+      "branch": "S+innovation",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 43,
+      "branch": "S+progress",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 44,
+      "branch": "S",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 44,
+      "branch": "S+C",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 44,
+      "branch": "S+P",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 44,
+      "branch": "S+C+P",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 44,
+      "branch": "S+C0",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 44,
+      "branch": "S+C0+P",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 44,
+      "branch": "C",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 44,
+      "branch": "P",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 44,
+      "branch": "S+C_no_conf",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 44,
+      "branch": "S+alignment",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 44,
+      "branch": "S+innovation",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 44,
+      "branch": "S+progress",
+      "partition": "final",
+      "frames": 7192,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "branch": "S",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "branch": "S+C",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "branch": "S+P",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "branch": "S+C+P",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "branch": "S+C0",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "branch": "S+C0+P",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "branch": "C",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "branch": "P",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "branch": "S+C_no_conf",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "branch": "S+alignment",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "branch": "S+innovation",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "branch": "S+progress",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 43,
+      "branch": "S",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 43,
+      "branch": "S+C",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 43,
+      "branch": "S+P",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 43,
+      "branch": "S+C+P",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 43,
+      "branch": "S+C0",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 43,
+      "branch": "S+C0+P",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 43,
+      "branch": "C",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 43,
+      "branch": "P",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 43,
+      "branch": "S+C_no_conf",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 43,
+      "branch": "S+alignment",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 43,
+      "branch": "S+innovation",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 43,
+      "branch": "S+progress",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 44,
+      "branch": "S",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 44,
+      "branch": "S+C",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 44,
+      "branch": "S+P",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 44,
+      "branch": "S+C+P",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 44,
+      "branch": "S+C0",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 44,
+      "branch": "S+C0+P",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 44,
+      "branch": "C",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 44,
+      "branch": "P",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 44,
+      "branch": "S+C_no_conf",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 44,
+      "branch": "S+alignment",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 44,
+      "branch": "S+innovation",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 44,
+      "branch": "S+progress",
+      "partition": "final",
+      "frames": 4568,
+      "status": "passed"
+    }
+  ]
+}

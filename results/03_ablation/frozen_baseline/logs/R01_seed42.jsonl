@@ -1,0 +1,43 @@
+{"time_utc": "2026-10-08T21:36:43.475621+00:00", "event": "cache_hit", "video": "R01/training/04"}
+{"time_utc": "2026-10-08T21:36:43.520616+00:00", "event": "cache_hit", "video": "R01/training/06"}
+{"time_utc": "2026-10-08T21:36:43.545022+00:00", "event": "cache_hit", "video": "R01/training/07"}
+{"time_utc": "2026-10-08T21:36:43.569165+00:00", "event": "cache_hit", "video": "R01/training/08"}
+{"time_utc": "2026-10-08T21:36:43.593338+00:00", "event": "cache_hit", "video": "R01/training/10"}
+{"time_utc": "2026-10-08T21:36:43.617201+00:00", "event": "cache_hit", "video": "R01/training/11"}
+{"time_utc": "2026-10-08T21:36:43.642017+00:00", "event": "cache_hit", "video": "R01/training/17"}
+{"time_utc": "2026-10-08T21:36:43.667027+00:00", "event": "cache_hit", "video": "R01/training/19"}
+{"time_utc": "2026-10-08T21:36:43.695109+00:00", "event": "cache_hit", "video": "R01/training/20"}
+{"time_utc": "2026-10-08T21:36:43.719466+00:00", "event": "cache_hit", "video": "R01/training/21"}
+{"time_utc": "2026-10-08T21:36:43.743618+00:00", "event": "cache_hit", "video": "R01/training/23"}
+{"time_utc": "2026-10-08T21:36:43.767452+00:00", "event": "cache_hit", "video": "R01/training/24"}
+{"time_utc": "2026-10-08T21:36:43.790996+00:00", "event": "cache_hit", "video": "R01/training/25"}
+{"time_utc": "2026-10-08T21:36:43.815410+00:00", "event": "cache_hit", "video": "R01/training/26"}
+{"time_utc": "2026-10-08T21:36:43.839232+00:00", "event": "cache_hit", "video": "R01/training/27"}
+{"time_utc": "2026-10-08T21:36:43.863094+00:00", "event": "cache_hit", "video": "R01/training/29"}
+{"time_utc": "2026-10-08T21:36:43.887055+00:00", "event": "cache_hit", "video": "R01/training/30"}
+{"time_utc": "2026-10-08T21:36:43.911304+00:00", "event": "cache_hit", "video": "R01/training/31"}
+{"time_utc": "2026-10-08T21:36:43.936016+00:00", "event": "cache_hit", "video": "R01/training/34"}
+{"time_utc": "2026-10-08T21:36:46.267225+00:00", "event": "extracted", "video": "R01/testing/01", "frames": 230, "seconds": 1.981497575994581, "peak_vram_bytes": 2563800064}
+{"time_utc": "2026-10-08T21:36:48.125963+00:00", "event": "extracted", "video": "R01/testing/02", "frames": 256, "seconds": 1.69464548099495, "peak_vram_bytes": 2563800064}
+{"time_utc": "2026-10-08T21:36:50.891007+00:00", "event": "extracted", "video": "R01/testing/03", "frames": 409, "seconds": 2.5471993579994887, "peak_vram_bytes": 2563800064}
+{"time_utc": "2026-10-08T21:36:53.005125+00:00", "event": "extracted", "video": "R01/testing/05", "frames": 290, "seconds": 1.939429726000526, "peak_vram_bytes": 2563800064}
+{"time_utc": "2026-10-08T21:36:54.749164+00:00", "event": "extracted", "video": "R01/testing/08", "frames": 235, "seconds": 1.5927186550034094, "peak_vram_bytes": 2563800064}
+{"time_utc": "2026-10-08T21:36:56.523613+00:00", "event": "extracted", "video": "R01/testing/10", "frames": 231, "seconds": 1.6193384859943762, "peak_vram_bytes": 2563800064}
+{"time_utc": "2026-10-08T21:36:58.298000+00:00", "event": "extracted", "video": "R01/testing/12", "frames": 231, "seconds": 1.6221694859996205, "peak_vram_bytes": 2563800064}
+{"time_utc": "2026-10-08T21:37:00.078531+00:00", "event": "extracted", "video": "R01/testing/13", "frames": 229, "seconds": 1.6302109960015514, "peak_vram_bytes": 2563800064}
+{"time_utc": "2026-10-08T21:37:01.821286+00:00", "event": "extracted", "video": "R01/testing/15", "frames": 228, "seconds": 1.593289382995863, "peak_vram_bytes": 2563800064}
+{"time_utc": "2026-10-08T21:37:01.909996+00:00", "event": "cache_hit", "video": "R01/training/01"}
+{"time_utc": "2026-10-08T21:37:01.998178+00:00", "event": "cache_hit", "video": "R01/training/02"}
+{"time_utc": "2026-10-08T21:37:02.085370+00:00", "event": "cache_hit", "video": "R01/training/03"}
+{"time_utc": "2026-10-08T21:37:02.173471+00:00", "event": "cache_hit", "video": "R01/training/05"}
+{"time_utc": "2026-10-08T21:37:02.262177+00:00", "event": "cache_hit", "video": "R01/training/09"}
+{"time_utc": "2026-10-08T21:37:02.350895+00:00", "event": "cache_hit", "video": "R01/training/12"}
+{"time_utc": "2026-10-08T21:37:02.438979+00:00", "event": "cache_hit", "video": "R01/training/13"}
+{"time_utc": "2026-10-08T21:37:02.527770+00:00", "event": "cache_hit", "video": "R01/training/14"}
+{"time_utc": "2026-10-08T21:37:02.617792+00:00", "event": "cache_hit", "video": "R01/training/15"}
+{"time_utc": "2026-10-08T21:37:02.707778+00:00", "event": "cache_hit", "video": "R01/training/16"}
+{"time_utc": "2026-10-08T21:37:02.801816+00:00", "event": "cache_hit", "video": "R01/training/18"}
+{"time_utc": "2026-10-08T21:37:02.891545+00:00", "event": "cache_hit", "video": "R01/training/22"}
+{"time_utc": "2026-10-08T21:37:02.980161+00:00", "event": "cache_hit", "video": "R01/training/28"}
+{"time_utc": "2026-10-08T21:37:03.068769+00:00", "event": "cache_hit", "video": "R01/training/32"}
+{"time_utc": "2026-10-08T21:37:03.157250+00:00", "event": "cache_hit", "video": "R01/training/33"}

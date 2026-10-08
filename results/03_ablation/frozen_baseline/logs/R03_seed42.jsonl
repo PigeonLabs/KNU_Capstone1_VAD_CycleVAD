@@ -1,0 +1,32 @@
+{"time_utc": "2026-10-08T21:38:46.497562+00:00", "event": "cache_hit", "video": "R03/training/01"}
+{"time_utc": "2026-10-08T21:38:46.539523+00:00", "event": "cache_hit", "video": "R03/training/04"}
+{"time_utc": "2026-10-08T21:38:46.582168+00:00", "event": "cache_hit", "video": "R03/training/07"}
+{"time_utc": "2026-10-08T21:38:46.624773+00:00", "event": "cache_hit", "video": "R03/training/08"}
+{"time_utc": "2026-10-08T21:38:46.670305+00:00", "event": "cache_hit", "video": "R03/training/10"}
+{"time_utc": "2026-10-08T21:38:46.717044+00:00", "event": "cache_hit", "video": "R03/training/11"}
+{"time_utc": "2026-10-08T21:38:46.762396+00:00", "event": "cache_hit", "video": "R03/training/13"}
+{"time_utc": "2026-10-08T21:38:46.802859+00:00", "event": "cache_hit", "video": "R03/training/16"}
+{"time_utc": "2026-10-08T21:38:46.844912+00:00", "event": "cache_hit", "video": "R03/training/17"}
+{"time_utc": "2026-10-08T21:38:46.886547+00:00", "event": "cache_hit", "video": "R03/training/18"}
+{"time_utc": "2026-10-08T21:38:46.928738+00:00", "event": "cache_hit", "video": "R03/training/19"}
+{"time_utc": "2026-10-08T21:38:46.970111+00:00", "event": "cache_hit", "video": "R03/training/22"}
+{"time_utc": "2026-10-08T21:38:51.076547+00:00", "event": "extracted", "video": "R03/testing/03", "frames": 674, "seconds": 3.7711875379973208, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:38:55.253113+00:00", "event": "extracted", "video": "R03/testing/04", "frames": 683, "seconds": 3.865323885001999, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:38:58.969830+00:00", "event": "extracted", "video": "R03/testing/05", "frames": 574, "seconds": 3.4365561609956785, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:39:03.203795+00:00", "event": "extracted", "video": "R03/testing/07", "frames": 686, "seconds": 3.9239706080043106, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:39:07.561611+00:00", "event": "extracted", "video": "R03/testing/08", "frames": 695, "seconds": 4.044698903999233, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:39:12.025705+00:00", "event": "extracted", "video": "R03/testing/09", "frames": 712, "seconds": 4.146598343999358, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:39:16.307602+00:00", "event": "extracted", "video": "R03/testing/11", "frames": 706, "seconds": 3.96191037799872, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:39:21.385713+00:00", "event": "extracted", "video": "R03/testing/12", "frames": 841, "seconds": 4.71091431700188, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:39:26.822764+00:00", "event": "extracted", "video": "R03/testing/14", "frames": 908, "seconds": 5.050002800999209, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:39:31.237074+00:00", "event": "extracted", "video": "R03/testing/17", "frames": 713, "seconds": 4.0944697560044006, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:39:31.376031+00:00", "event": "cache_hit", "video": "R03/training/02"}
+{"time_utc": "2026-10-08T21:39:31.518062+00:00", "event": "cache_hit", "video": "R03/training/03"}
+{"time_utc": "2026-10-08T21:39:31.655697+00:00", "event": "cache_hit", "video": "R03/training/05"}
+{"time_utc": "2026-10-08T21:39:31.794536+00:00", "event": "cache_hit", "video": "R03/training/06"}
+{"time_utc": "2026-10-08T21:39:31.934228+00:00", "event": "cache_hit", "video": "R03/training/09"}
+{"time_utc": "2026-10-08T21:39:32.073806+00:00", "event": "cache_hit", "video": "R03/training/12"}
+{"time_utc": "2026-10-08T21:39:32.209296+00:00", "event": "cache_hit", "video": "R03/training/14"}
+{"time_utc": "2026-10-08T21:39:32.347257+00:00", "event": "cache_hit", "video": "R03/training/15"}
+{"time_utc": "2026-10-08T21:39:32.484406+00:00", "event": "cache_hit", "video": "R03/training/20"}
+{"time_utc": "2026-10-08T21:39:32.624880+00:00", "event": "cache_hit", "video": "R03/training/21"}

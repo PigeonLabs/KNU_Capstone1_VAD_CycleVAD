@@ -1,0 +1,19 @@
+{
+  "rule": "Rank videos by baseline S failure metric; tie-break scene/video; no method selection from these examples.",
+  "examples": [
+    {
+      "scene": "R01",
+      "video": "12",
+      "seed": 42,
+      "selection": "Highest baseline FPR",
+      "baseline_value": 0.06926406926406926
+    },
+    {
+      "scene": "R01",
+      "video": "01",
+      "seed": 42,
+      "selection": "Lowest baseline TPR",
+      "baseline_value": 0.0
+    }
+  ]
+}

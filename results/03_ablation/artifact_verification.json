@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "partition": "final",
+  "scene_seed_video_files": 111,
+  "score_rows_including_seeds": 55788,
+  "unique_videos": 37,
+  "unique_frames": 18596,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "checks": [
+    "exact expected video coverage",
+    "contiguous full stride-1 frame coverage",
+    "finite scalar data",
+    "identical labels across seeds",
+    "normal/evaluation split separation",
+    "stage-specific adoption or frozen-protocol checks",
+    "source annotation SHA256 and exact per-frame GT equality"
+  ],
+  "source_annotation_videos_verified": 37
+}

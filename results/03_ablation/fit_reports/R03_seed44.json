@@ -1,0 +1,92 @@
+{
+  "seed": 44,
+  "descriptor_dimension": 3072,
+  "cycle": {
+    "normal_cycle_candidates": 12,
+    "median_period_source_frames": 692.0,
+    "template_temperature": 0.08288948552951504,
+    "period_q10_q90": [
+      669.7,
+      707.5
+    ]
+  },
+  "conditional": {
+    "rank": 64,
+    "samples": 4092,
+    "retained_variance": 0.8386934399604797,
+    "variance_target_met": false
+  },
+  "constant": {
+    "rank": 64,
+    "samples": 4092,
+    "retained_variance": 0.9439896941184998,
+    "variance_target_met": false
+  },
+  "selection": [
+    {
+      "harmonics": 2,
+      "ridge": 0.01,
+      "normal_validation_mse": 2.3065382265485823e-05
+    },
+    {
+      "harmonics": 2,
+      "ridge": 0.1,
+      "normal_validation_mse": 2.4597859010100365e-05
+    },
+    {
+      "harmonics": 2,
+      "ridge": 1.0,
+      "normal_validation_mse": 3.666229167720303e-05
+    },
+    {
+      "harmonics": 4,
+      "ridge": 0.01,
+      "normal_validation_mse": 1.9259266991866753e-05
+    },
+    {
+      "harmonics": 4,
+      "ridge": 0.1,
+      "normal_validation_mse": 2.1075833501527086e-05
+    },
+    {
+      "harmonics": 4,
+      "ridge": 1.0,
+      "normal_validation_mse": 3.499726881273091e-05
+    },
+    {
+      "harmonics": 8,
+      "ridge": 0.01,
+      "normal_validation_mse": 1.5385950973723084e-05
+    },
+    {
+      "harmonics": 8,
+      "ridge": 0.1,
+      "normal_validation_mse": 1.713742130959872e-05
+    },
+    {
+      "harmonics": 8,
+      "ridge": 1.0,
+      "normal_validation_mse": 3.24416505463887e-05
+    }
+  ],
+  "harmonics": 8,
+  "ridge": 0.01,
+  "mean_fit_confidence": 0.5629892450285251,
+  "boundary_source": "weak_recording_alignment",
+  "thresholds": {
+    "S": 2.242599156063879,
+    "S+C": 2.8257736843009944,
+    "S+P": 5.712789409212986,
+    "S+C+P": 5.712789409212986,
+    "S+C0": 2.9566458874177073,
+    "S+C0+P": 5.712789409212986,
+    "C": 2.812360883049652,
+    "P": 5.712789409212986,
+    "S+C_no_conf": 5.356114465274254,
+    "S+alignment": 3.094351366800463,
+    "S+innovation": 4.257502176606144,
+    "S+progress": 4.950649357166089
+  },
+  "fit_calibrate_seconds": 10.041362153999216,
+  "backbone": "frozen"
+}

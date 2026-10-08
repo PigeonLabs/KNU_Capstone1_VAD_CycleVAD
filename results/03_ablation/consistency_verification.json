@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "scene_seed_branch_rows": 144,
+  "frozen_videos": 37,
+  "matched_scene_seed_video_files": 111,
+  "prespecified_contrasts": 7,
+  "checks": [
+    "frozen decision and configuration identity",
+    "complete scene/seed/branch and model coverage",
+    "minimum normal-validation mean selection",
+    "matched C/C0 rank and sample count",
+    "exact frozen baseline frame/GT/raw/calibrated score equality across seeds",
+    "unchanged baseline thresholds",
+    "contrast deltas recovered independently from metrics and JSON/CSV agreement"
+  ]
+}

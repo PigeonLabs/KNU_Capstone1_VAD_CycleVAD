@@ -1,0 +1,36 @@
+{"time_utc": "2026-10-08T21:40:18.597876+00:00", "event": "cache_hit", "video": "R04/training/01"}
+{"time_utc": "2026-10-08T21:40:18.628828+00:00", "event": "cache_hit", "video": "R04/training/04"}
+{"time_utc": "2026-10-08T21:40:18.658629+00:00", "event": "cache_hit", "video": "R04/training/07"}
+{"time_utc": "2026-10-08T21:40:18.689688+00:00", "event": "cache_hit", "video": "R04/training/08"}
+{"time_utc": "2026-10-08T21:40:18.720214+00:00", "event": "cache_hit", "video": "R04/training/10"}
+{"time_utc": "2026-10-08T21:40:18.749607+00:00", "event": "cache_hit", "video": "R04/training/11"}
+{"time_utc": "2026-10-08T21:40:18.780338+00:00", "event": "cache_hit", "video": "R04/training/16"}
+{"time_utc": "2026-10-08T21:40:18.810401+00:00", "event": "cache_hit", "video": "R04/training/17"}
+{"time_utc": "2026-10-08T21:40:18.841279+00:00", "event": "cache_hit", "video": "R04/training/18"}
+{"time_utc": "2026-10-08T21:40:18.871526+00:00", "event": "cache_hit", "video": "R04/training/19"}
+{"time_utc": "2026-10-08T21:40:18.902304+00:00", "event": "cache_hit", "video": "R04/training/20"}
+{"time_utc": "2026-10-08T21:40:18.933306+00:00", "event": "cache_hit", "video": "R04/training/21"}
+{"time_utc": "2026-10-08T21:40:18.963660+00:00", "event": "cache_hit", "video": "R04/training/22"}
+{"time_utc": "2026-10-08T21:40:18.994224+00:00", "event": "cache_hit", "video": "R04/training/25"}
+{"time_utc": "2026-10-08T21:40:21.892871+00:00", "event": "extracted", "video": "R04/testing/01", "frames": 411, "seconds": 2.641614453001239, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:40:24.616842+00:00", "event": "extracted", "video": "R04/testing/03", "frames": 381, "seconds": 2.5000855140024214, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:40:27.181229+00:00", "event": "extracted", "video": "R04/testing/04", "frames": 379, "seconds": 2.3430725459984387, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:40:30.384263+00:00", "event": "extracted", "video": "R04/testing/06", "frames": 505, "seconds": 2.9415046029971563, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:40:33.309037+00:00", "event": "extracted", "video": "R04/testing/11", "frames": 424, "seconds": 2.690751367001212, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:40:36.453230+00:00", "event": "extracted", "video": "R04/testing/13", "frames": 464, "seconds": 2.8983650989976013, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:40:39.178706+00:00", "event": "extracted", "video": "R04/testing/14", "frames": 385, "seconds": 2.5059304390015313, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:40:41.850365+00:00", "event": "extracted", "video": "R04/testing/15", "frames": 376, "seconds": 2.4551277490027132, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:40:44.659700+00:00", "event": "extracted", "video": "R04/testing/16", "frames": 418, "seconds": 2.574661122998805, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:40:48.324900+00:00", "event": "extracted", "video": "R04/testing/17", "frames": 582, "seconds": 3.3842633239983115, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:40:50.302386+00:00", "event": "extracted", "video": "R04/testing/18", "frames": 243, "seconds": 1.802650518999144, "peak_vram_bytes": 2563952640}
+{"time_utc": "2026-10-08T21:40:50.422246+00:00", "event": "cache_hit", "video": "R04/training/02"}
+{"time_utc": "2026-10-08T21:40:50.541602+00:00", "event": "cache_hit", "video": "R04/training/03"}
+{"time_utc": "2026-10-08T21:40:50.659783+00:00", "event": "cache_hit", "video": "R04/training/05"}
+{"time_utc": "2026-10-08T21:40:50.778614+00:00", "event": "cache_hit", "video": "R04/training/06"}
+{"time_utc": "2026-10-08T21:40:50.896177+00:00", "event": "cache_hit", "video": "R04/training/09"}
+{"time_utc": "2026-10-08T21:40:51.012980+00:00", "event": "cache_hit", "video": "R04/training/12"}
+{"time_utc": "2026-10-08T21:40:51.128641+00:00", "event": "cache_hit", "video": "R04/training/13"}
+{"time_utc": "2026-10-08T21:40:51.242015+00:00", "event": "cache_hit", "video": "R04/training/14"}
+{"time_utc": "2026-10-08T21:40:51.358551+00:00", "event": "cache_hit", "video": "R04/training/15"}
+{"time_utc": "2026-10-08T21:40:51.477496+00:00", "event": "cache_hit", "video": "R04/training/23"}
+{"time_utc": "2026-10-08T21:40:51.593750+00:00", "event": "cache_hit", "video": "R04/training/24"}

@@ -1,0 +1,50 @@
+{
+  "backbone_decision_sha256": "fcc726e1b6c4fcac7fed0ca2a5ab4070fb11c40559806b5c57e5736431496014",
+  "branches": [
+    "S",
+    "S+C",
+    "S+P",
+    "S+C+P",
+    "S+C0",
+    "S+C0+P",
+    "C",
+    "P",
+    "S+C_no_conf",
+    "S+alignment",
+    "S+innovation",
+    "S+progress"
+  ],
+  "contrasts": [
+    [
+      "S",
+      "S+C+P"
+    ],
+    [
+      "S",
+      "S+C"
+    ],
+    [
+      "S",
+      "S+P"
+    ],
+    [
+      "S+P",
+      "S+C+P"
+    ],
+    [
+      "S+C",
+      "S+C+P"
+    ],
+    [
+      "S+C0",
+      "S+C"
+    ],
+    [
+      "S+C0+P",
+      "S+C+P"
+    ]
+  ],
+  "config_sha256": "a1a88ed549638d633cab42b2cbb221cbc9ed1f3ad6b1ce4b33f69587c155d528",
+  "partition": "final",
+  "no_final_selection": true
+}

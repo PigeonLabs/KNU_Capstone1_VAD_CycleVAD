@@ -154,12 +154,17 @@ python -m ipad_experiment.pipeline prepare --data-root /path/to/IPAD_dataset
 python -m pytest -q
 python scripts/verify_gpu.py
 python -m ipad_experiment.pipeline baseline --data-root /path/to/IPAD_dataset
+python -m ipad_experiment.pipeline train-lora --data-root /path/to/IPAD_dataset
+python -m ipad_experiment.pipeline select-backbone --data-root /path/to/IPAD_dataset
+python -m ipad_experiment.pipeline ablation --data-root /path/to/IPAD_dataset
 python -m ipad_experiment.pipeline report
 ```
 
-후속 단계 CLI는 `train-lora`, `select-backbone`, `ablation`입니다. 각 단계는 구현·검증 후 실행 상태를 갱신합니다. `report`는 저장된 점수·지표에서 그림과 README를 다시 생성하며 GPU가 필요하지 않습니다. [실행/분석 노트북](notebooks/Experiment.ipynb)을 함께 제공합니다.
+위 순서로 baseline, 정상 데이터 LoRA 학습, 개발셋 채택 결정, 최종 ablation을 실행합니다. `ablation`은 완료된 채택 결정과 동일한 설정을 요구합니다. `report`는 저장된 점수·지표에서 그림과 README를 다시 생성하며 GPU가 필요하지 않습니다. [실행/분석 노트북](notebooks/Experiment.ipynb)을 함께 제공합니다.
 
 각 단계의 저장 점수는 `python scripts/recompute_metrics.py --run 02_lora`로 지표를 독립 재계산하고, `python scripts/verify_artifacts.py --run 02_lora --data-root /path/to/IPAD_dataset`으로 영상·프레임 범위와 원본 GT의 프레임별 일치를 검사할 수 있습니다. `--run`에는 검사할 단계 이름을 지정합니다.
+
+이번 frozen 최종 실험의 대조 일관성은 `python scripts/verify_final_consistency.py`로 검사합니다. 이는 S 점수·임계값 보존, C/C0의 rank·표본 수 일치, 7개 대조와 독립 집계 차이의 일치를 확인합니다.
 
 ## 결과 파일 정책
 

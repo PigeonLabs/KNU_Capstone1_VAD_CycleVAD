@@ -1,0 +1,12 @@
+{
+  "verified_utc": "2026-10-08T21:36:39.879232+00:00",
+  "stage02_published_before_final_evaluation": true,
+  "backbone_decision_sha256": "fcc726e1b6c4fcac7fed0ca2a5ab4070fb11c40559806b5c57e5736431496014",
+  "selected_backbone": "frozen",
+  "execution_source": {
+    "local_commit": "180502a30406c6d910042a9e5f8a5656583b3bc2",
+    "published_commit": "849ac5a759144b9139205ef6c5cb586b78aefd10",
+    "identical_tree": "b730c5147297610af54b104e607e54304d1735f1"
+  },
+  "note": "Local and GitHub connector commit histories differ; verified complete file-tree equality before beginning final evaluation."
+}

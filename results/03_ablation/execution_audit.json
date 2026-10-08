@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "all_four_stage_manifests_completed": true,
+  "final_normal_only_selection_and_controls": "verified by scripts/verify_final_consistency.py and reviewed execution source",
+  "metrics_independently_verified": 148,
+  "final_unique_videos": 37,
+  "final_unique_frames": 18596,
+  "final_score_rows_including_seeds": 55788,
+  "original_frozen_baseline_score_rows": 18596,
+  "post_execution_source_changes": [
+    "src/ipad_experiment/analysis.py",
+    "src/ipad_experiment/report.py"
+  ],
+  "notebook_executed_code_cells": 3,
+  "notebook_errors": 0,
+  "figures_visually_reviewed": [
+    "ablation_differences.png",
+    "diagnostic_fpr.png",
+    "diagnostic_tpr.png",
+    "final_curves.png",
+    "final_performance.png",
+    "final_primary_ablation.png",
+    "score_example.png"
+  ],
+  "limitations": [
+    "DINOv2-base 336px method application; not Giant/672px benchmark-number reproduction",
+    "Three R02 videos excluded consistently for unresolved frame/label length mismatch",
+    "No true cycle-boundary/progress labels or original recording groups",
+    "Rank 64 cap retained 73.00–84.02% variance; no fit reached the 95% target",
+    "Seven exploratory unadjusted confidence intervals; bootstrap conditional on observed seeds",
+    "Current held-out selection does not erase earlier repository test exposure"
+  ]
+}

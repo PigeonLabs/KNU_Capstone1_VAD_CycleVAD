@@ -121,6 +121,11 @@ def ablation_analysis(out):
     write_json(out/'diagnostic_examples.json',{'rule':'Rank videos by baseline S failure metric; tie-break scene/video; no method selection from these examples.','examples':selected})
     frozen=pd.read_csv(out/'frozen_baseline/metrics_by_scene.csv',float_precision="round_trip")
     macro=matrix['Macro'];gain=macro['S+C+P']-macro['S']
+    per_seed=metrics.groupby(['seed','branch'])[['auroc','ap','tpr','fpr']].mean().reset_index()
+    per_seed.to_csv(out/'performance_by_seed.csv',index=False)
+    scene_delta=matrix.loc['S+C+P',SCENES]-matrix.loc['S',SCENES]
+    worst_scene=scene_delta.idxmin()
+    worst_c_delta=matrix.loc['S+C',worst_scene]-matrix.loc['S',worst_scene]
     overall=comparisons[comparisons.contrast=='S+C+P_minus_S'].iloc[0]
     causal=comparisons[comparisons.contrast=='S+C+P_minus_S+P'].iloc[0]
     control=comparisons[comparisons.contrast=='S+C+P_minus_S+C0+P'].iloc[0]
@@ -144,6 +149,8 @@ def ablation_analysis(out):
 선택한 백본의 최종 평가 macro AUROC는 **S {macro['S']:.2f}% → S+C+P {macro['S+C+P']:.2f}%**, 차이는 **{gain:+.2f}%p**입니다. 별도로 측정한 원래 frozen S는 **{frozen.auroc.mean()*100:.2f}%**입니다. 개발셋 결과와 최종 평가 수치를 직접 증감 비교하지 않습니다.
 
 전체 결합의 차이(S+C+P − S)에 대한 영상 단위 paired bootstrap 95% 구간은 **[{overall.ci_low*100:+.2f}, {overall.ci_high*100:+.2f}]%p**입니다.
+
+장면별 사후 진단에서 전체 결합의 baseline 대비 차이가 가장 낮은 장면은 **{worst_scene} ({scene_delta[worst_scene]:+.2f}%p)**입니다. 같은 장면의 S+C − S는 **{worst_c_delta:+.2f}%p**로, P 포함 여부에 따른 차이도 확인해야 합니다. 이는 관측된 장면별 차이이며 진행도 추정 오류의 원인을 입증한 결과는 아닙니다. [Seed별 macro 지표](results/03_ablation/performance_by_seed.csv)도 함께 보존합니다.
 
 P가 없는 경우, C를 S에 추가한 차이(S+C − S)는 **{without_p.mean_delta*100:+.2f}%p**, 95% 구간 **[{without_p.ci_low*100:+.2f}, {without_p.ci_high*100:+.2f}]%p**입니다. 상수 평균 대조(S+C − S+C0)는 **{control_without_p.mean_delta*100:+.2f}%p**, 95% 구간 **[{control_without_p.ci_low*100:+.2f}, {control_without_p.ci_high*100:+.2f}]%p**입니다. 이 결과와 아래의 P 포함 대조를 구분해 해석합니다.
 

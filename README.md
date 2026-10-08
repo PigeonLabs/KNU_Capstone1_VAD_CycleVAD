@@ -17,7 +17,7 @@ $$z_t = \tilde\mu(\hat\phi_t) + U a_t + \varepsilon_t$$
 | 데이터·설정·구현 검증 | 완료 | [상세](results/00_prepare/report.md) |
 | Frozen SubspaceAD | 완료 | [상세](results/01_baseline/report.md) |
 | LoRA 학습·채택 판단 | 완료 | [상세](results/02_lora/report.md) |
-| 진행도 모듈 ablation | 미실행 | — |
+| 진행도 모듈 ablation | 완료 | [상세](results/03_ablation/report.md) |
 
 ## 방법과 평가 규약
 
@@ -118,7 +118,85 @@ Seed별 macro AUROC는 **seed 42: 73.18%, seed 43: 72.95%, seed 44: 72.89%**입�
 
 ## 진행도 모듈 ablation
 
-미실행 또는 집계 전입니다.
+장면·seed 평균, 단위 %. 개발셋과 최종 평가셋을 구분합니다.
+
+| partition | branch | auroc | ap | f1 | tpr | fpr |
+| --- | --- | --- | --- | --- | --- | --- |
+| final | S | 67.549 | 57.192 | 9.098 | 5.416 | 1.366 |
+| final | S+C | 68.477 | 55.032 | 9.189 | 5.963 | 2.934 |
+| final | S+C+P | 67.202 | 56.651 | 15.386 | 9.670 | 3.777 |
+| final | S+C0 | 68.043 | 54.889 | 8.136 | 5.070 | 2.661 |
+| final | S+C0+P | 67.281 | 56.753 | 15.380 | 9.661 | 3.740 |
+| final | S+P | 67.718 | 57.321 | 15.320 | 9.591 | 3.524 |
+
+| partition | scene | branch | auroc | ap |
+| --- | --- | --- | --- | --- |
+| final | R01 | S | 60.758 | 34.692 |
+| final | R01 | S+C | 61.147 | 34.830 |
+| final | R01 | S+C+P | 60.303 | 36.163 |
+| final | R01 | S+C0 | 61.130 | 34.824 |
+| final | R01 | S+C0+P | 60.304 | 36.164 |
+| final | R01 | S+P | 60.300 | 36.163 |
+| final | R02 | S | 76.259 | 57.494 |
+| final | R02 | S+C | 75.811 | 57.317 |
+| final | R02 | S+C+P | 76.856 | 63.891 |
+| final | R02 | S+C0 | 75.838 | 57.182 |
+| final | R02 | S+C0+P | 76.866 | 63.866 |
+| final | R02 | S+P | 77.039 | 63.956 |
+| final | R03 | S | 65.212 | 63.536 |
+| final | R03 | S+C | 67.919 | 54.488 |
+| final | R03 | S+C+P | 61.910 | 51.723 |
+| final | R03 | S+C0 | 67.104 | 54.421 |
+| final | R03 | S+C0+P | 62.233 | 52.160 |
+| final | R03 | S+P | 63.805 | 54.343 |
+| final | R04 | S | 67.967 | 73.048 |
+| final | R04 | S+C | 69.031 | 73.491 |
+| final | R04 | S+C+P | 69.737 | 74.825 |
+| final | R04 | S+C0 | 68.100 | 73.128 |
+| final | R04 | S+C0+P | 69.723 | 74.821 |
+| final | R04 | S+P | 69.727 | 74.821 |
+
+![ablation_differences](results/03_ablation/figures/ablation_differences.png)
+
+![diagnostic_fpr](results/03_ablation/figures/diagnostic_fpr.png)
+
+![diagnostic_tpr](results/03_ablation/figures/diagnostic_tpr.png)
+
+![final_curves](results/03_ablation/figures/final_curves.png)
+
+![final_performance](results/03_ablation/figures/final_performance.png)
+
+![final_primary_ablation](results/03_ablation/figures/final_primary_ablation.png)
+
+![score_example](results/03_ablation/figures/score_example.png)
+
+### 모듈 결과 해석
+
+선택한 백본의 최종 평가 macro AUROC는 **S 67.55% → S+C+P 67.20%**, 차이는 **-0.35%p**입니다. 별도로 측정한 원래 frozen S는 **67.55%**입니다. 개발셋 결과와 최종 평가 수치를 직접 증감 비교하지 않습니다.
+
+전체 결합의 차이(S+C+P − S)에 대한 영상 단위 paired bootstrap 95% 구간은 **[-6.22, +6.30]%p**입니다.
+
+장면별 사후 진단에서 전체 결합의 baseline 대비 차이가 가장 낮은 장면은 **R03 (-3.30%p)**입니다. 같은 장면의 S+C − S는 **+2.71%p**로, P 포함 여부에 따른 차이도 확인해야 합니다. 이는 관측된 장면별 차이이며 진행도 추정 오류의 원인을 입증한 결과는 아닙니다. [Seed별 macro 지표](results/03_ablation/performance_by_seed.csv)도 함께 보존합니다.
+
+P가 없는 경우, C를 S에 추가한 차이(S+C − S)는 **+0.93%p**, 95% 구간 **[-0.85, +2.96]%p**입니다. 상수 평균 대조(S+C − S+C0)는 **+0.43%p**, 95% 구간 **[+0.20, +0.77]%p**입니다. 이 결과와 아래의 P 포함 대조를 구분해 해석합니다.
+
+연속 정상 평균 C를 S+P에 추가한 차이는 **-0.52%p**, 영상 bootstrap 95% 구간은 **[-0.83, -0.16]%p**입니다. 같은 특징·표본·실제 rank·confidence를 사용하는 상수 평균 C0와의 비교(S+C+P − S+C0+P)는 **-0.08%p**, 95% 구간 **[-0.18, +0.03]%p**입니다.
+
+**S+P에 C를 추가한 최종 결합 맥락에서, 핵심 대조 중 음의 구간이 있어 연속 정상 평균의 유용성이 확인됐다고 결론 내릴 수 없습니다.**
+
+전체 결합의 향상만으로 연속 평균의 기여를 주장하지 않습니다. C 추가 및 C0 대조와 함께 판단하며, 95% 구간이 0을 포함하는 대조는 양의 효과가 확정됐다고 표현하지 않습니다. 7개 대조의 구간은 다중 비교 보정 전 탐색적 구간입니다.
+
+[대조별 수치](results/03_ablation/comparisons.csv) · [영상별 구성요소 활성도](results/03_ablation/component_activity_by_video.csv) · [실패 예시 선택 규칙](results/03_ablation/diagnostic_examples.json)
+
+### 적용 범위와 진단
+
+이 실험은 실제 cycle 경계 없이 정상 녹화 영상 전체를 cycle 후보로 삼는 `weak_recording_alignment` 조건입니다. 추정 angle/confidence는 정상 템플릿과의 정합도이며 정답 진행도와의 오차를 측정한 값이 아닙니다. 영상별 confidence와 C/P가 S를 바꾼 프레임 비율을 남겼습니다. 진단 그림은 baseline FPR이 가장 높은 영상과 TPR이 가장 낮은 영상을 고정 규칙으로 선택하며, 좋은 사례만 고르지 않습니다.
+
+각 branch 임계값은 동일한 정상 threshold 영상의 q99로 따로 정했습니다. 최고 AUROC branch를 사후 선택하거나 최종 라벨로 임계값을 조정하지 않았습니다. rank·설명분산과 정상 validation 선택 내역은 `fit_reports/`, 이벤트 coverage·검출된 이벤트의 지연은 지표 CSV에 있습니다. 지연은 검출된 이벤트만의 조건부 값이므로 미검출 비율과 함께 읽어야 합니다.
+
+공유 잔차 PCA의 실제 rank 범위는 64–64, 보존 설명분산 범위는 73.00–84.02%입니다. 95% 설명분산 목표를 달성한 fit은 0/12개입니다. rank 상한 때문에 목표를 달성하지 못한 경우도 그대로 보고합니다.
+
+[상세 분석·로그](results/03_ablation/report.md)
 
 ## 재현
 
@@ -132,12 +210,17 @@ python -m ipad_experiment.pipeline prepare --data-root /path/to/IPAD_dataset
 python -m pytest -q
 python scripts/verify_gpu.py
 python -m ipad_experiment.pipeline baseline --data-root /path/to/IPAD_dataset
+python -m ipad_experiment.pipeline train-lora --data-root /path/to/IPAD_dataset
+python -m ipad_experiment.pipeline select-backbone --data-root /path/to/IPAD_dataset
+python -m ipad_experiment.pipeline ablation --data-root /path/to/IPAD_dataset
 python -m ipad_experiment.pipeline report
 ```
 
-후속 단계 CLI는 `train-lora`, `select-backbone`, `ablation`입니다. 각 단계는 구현·검증 후 실행 상태를 갱신합니다. `report`는 저장된 점수·지표에서 그림과 README를 다시 생성하며 GPU가 필요하지 않습니다. [실행/분석 노트북](notebooks/Experiment.ipynb)을 함께 제공합니다.
+위 순서로 baseline, 정상 데이터 LoRA 학습, 개발셋 채택 결정, 최종 ablation을 실행합니다. `ablation`은 완료된 채택 결정과 동일한 설정을 요구합니다. `report`는 저장된 점수·지표에서 그림과 README를 다시 생성하며 GPU가 필요하지 않습니다. [실행/분석 노트북](notebooks/Experiment.ipynb)을 함께 제공합니다.
 
 각 단계의 저장 점수는 `python scripts/recompute_metrics.py --run 02_lora`로 지표를 독립 재계산하고, `python scripts/verify_artifacts.py --run 02_lora --data-root /path/to/IPAD_dataset`으로 영상·프레임 범위와 원본 GT의 프레임별 일치를 검사할 수 있습니다. `--run`에는 검사할 단계 이름을 지정합니다.
+
+이번 frozen 최종 실험의 대조 일관성은 `python scripts/verify_final_consistency.py`로 검사합니다. 이는 S 점수·임계값 보존, C/C0의 rank·표본 수 일치, 7개 대조와 독립 집계 차이의 일치를 확인합니다.
 
 ## 결과 파일 정책
 

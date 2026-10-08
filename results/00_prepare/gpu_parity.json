@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.8.0-146-generic-x86_64-with-glibc2.39",
+    "packages": {
+      "torch": "2.8.0+cu128",
+      "torchvision": "0.23.0+cu128",
+      "transformers": "4.57.1",
+      "numpy": "2.5.2",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "pandas": "3.0.6",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0",
+      "opencv-python": null,
+      "nbformat": "5.11.1",
+      "nbclient": "0.11.0"
+    },
+    "cuda_available": true,
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition"
+  },
+  "feature_max_abs_error": 0.0,
+  "pca_projector_max_abs_error": 0.0,
+  "score_max_abs_error": 2.384185791015625e-07,
+  "official_scores": [
+    3.227569103240967,
+    3.6932878494262695,
+    2.677929162979126
+  ],
+  "our_scores": [
+    3.227569103240967,
+    3.6932876110076904,
+    2.677929162979126
+  ],
+  "source_video": "R01/training/04",
+  "frames_tested": [
+    0,
+    116,
+    231
+  ]
+}

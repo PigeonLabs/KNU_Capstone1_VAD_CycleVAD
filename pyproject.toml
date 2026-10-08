@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ipad-cycle-experiment"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["torch", "torchvision", "transformers", "numpy", "scipy", "scikit-learn", "matplotlib", "pandas", "Pillow", "joblib", "opencv-python-headless", "nbformat", "nbclient", "ipykernel"]
+
+[project.scripts]
+ipad-experiment = "ipad_experiment.pipeline:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "vendor"]
+testpaths = ["tests"]

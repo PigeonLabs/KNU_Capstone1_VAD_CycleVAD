@@ -1,0 +1,22 @@
+{
+  "model_id": "facebook/dinov2-base",
+  "image_size": 336,
+  "baseline_layers": [
+    -4,
+    -5
+  ],
+  "cycle_layers": [
+    -1,
+    -3
+  ],
+  "patch_grid": 6,
+  "patch_dim": 64,
+  "projection_seed": 42,
+  "precision": "float32",
+  "batch_size": 32,
+  "workers": 8,
+  "preprocessing": "official_square_resize_no_crop",
+  "revision": "f9e44c814b77203eaa57a6bdbbd535f21ede1415",
+  "adapter_sha256": "cf9fe99abd6d4c85d2cc085a88cd73ef9b258a383e7176459ee79feb773160ee",
+  "implementation": 1
+}

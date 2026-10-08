@@ -13,6 +13,7 @@ from .evaluation import summarize,save_scores
 from .selection import paired_bootstrap,load_score_tables
 
 BRANCHES=["S","S+C","S+P","S+C+P","S+C0","S+C0+P","C","P","S+C_no_conf","S+alignment","S+innovation","S+progress"]
+CONTRASTS=[["S","S+C+P"],["S","S+C"],["S","S+P"],["S+P","S+C+P"],["S+C","S+C+P"],["S+C0","S+C"],["S+C0+P","S+C+P"]]
 
 class ContinuousModule:
     def __init__(self,cfg,seed): self.cfg=dict(cfg);self.seed=seed
@@ -42,7 +43,7 @@ class ContinuousModule:
         rank=self.conditional.basis.shape[0]
         self.constant=ResidualSpace().fit(balanced_sample([x-self.constant_mean for x in z],c["fit_samples"],self.seed),rank,variance=1.,seed=self.seed)
         assert self.constant.basis.shape[0]==rank
-        self.diagnostics={"cycle":self.tracker.fit_diagnostics,"conditional":self.conditional.diagnostics,"constant":self.constant.diagnostics,"selection":choices,"harmonics":self.harmonics,"ridge":self.ridge,"mean_fit_confidence":float(np.mean([t["confidence"].mean() for t in cycles])),"boundary_source":"weak_recording_alignment"}
+        self.diagnostics={"seed":self.seed,"descriptor_dimension":z[0].shape[1],"cycle":self.tracker.fit_diagnostics,"conditional":self.conditional.diagnostics,"constant":self.constant.diagnostics,"selection":choices,"harmonics":self.harmonics,"ridge":self.ridge,"mean_fit_confidence":float(np.mean([t["confidence"].mean() for t in cycles])),"boundary_source":"weak_recording_alignment"}
         return self
 
     def raw(self,data):
@@ -80,8 +81,15 @@ def run_ablation(data_root,cfg):
     from .pipeline import baseline_scene
     decision_path=ROOT/"results/02_lora/backbone_decision.json"
     if not decision_path.exists():raise RuntimeError("Backbone selection must finish before final evaluation")
-    decision=read_json(decision_path);out=init_run("03_ablation",cfg)
-    write_json(out/"frozen_protocol.json",{"backbone_decision_sha256":file_hash(decision_path),"branches":BRANCHES,"config_sha256":digest(cfg),"partition":"final","no_final_selection":True})
+    decision=read_json(decision_path)
+    lora_out=decision_path.parent
+    if read_json(lora_out/"run_manifest.json")["status"]!="completed":raise RuntimeError("Backbone selection is incomplete")
+    if digest(read_json(lora_out/"config.json"))!=digest(cfg):raise ValueError("Final configuration differs from selection")
+    out=init_run("03_ablation",cfg)
+    frozen_protocol={"backbone_decision_sha256":file_hash(decision_path),"branches":BRANCHES,"contrasts":CONTRASTS,"config_sha256":digest(cfg),"partition":"final","no_final_selection":True}
+    protocol_path=out/"frozen_protocol.json"
+    if protocol_path.exists() and read_json(protocol_path)!=frozen_protocol:raise ValueError("Cannot change the frozen final protocol")
+    write_json(protocol_path,frozen_protocol)
     all_tables={};thresholds={};frozen_tables={};frozen_thresholds={};timings=[]
     for scene in cfg["scenes"]:
         # Final original baseline is evaluated once, after the adoption decision is frozen.
@@ -110,9 +118,8 @@ def run_ablation(data_root,cfg):
     videos.to_csv(out/"metrics_by_video.csv",index=False);metrics.to_csv(out/"metrics_by_scene.csv",index=False)
     fv,fm=summarize(frozen_tables,frozen_thresholds,["S"]);fv.to_csv(out/"frozen_baseline/metrics_by_video.csv",index=False);fm.to_csv(out/"frozen_baseline/metrics_by_scene.csv",index=False)
     pd.DataFrame(timings).to_csv(out/"timing.csv",index=False)
-    contrasts=[("S","S+C"),("S","S+P"),("S+P","S+C+P"),("S+C","S+C+P"),("S+C0","S+C"),("S+C0+P","S+C+P")]
     comparisons=[]
-    for a,b in contrasts:
+    for a,b in CONTRASTS:
         result,distribution=paired_bootstrap(all_tables,all_tables,a,b,load_rows(parts=["final"]),cfg["bootstrap"]["samples"],cfg["bootstrap"]["seed"])
         name=f"{b}_minus_{a}";write_json(out/"comparisons"/f"{name}.json",result)
         comparisons.append({"contrast":name,**{k:result[k] for k in ["mean_delta","ci_low","ci_high"]}})

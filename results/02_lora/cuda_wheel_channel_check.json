@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-10-08T19:43:43.270725+00:00",
+  "index": "https://download.pytorch.org/whl/cu128",
+  "official_instructions": "https://pytorch.org/get-started/previous-versions/",
+  "available_and_installed": {
+    "torch": "2.8.0+cu128",
+    "torchvision": "0.23.0+cu128"
+  },
+  "method": "python -m pip index versions <package> --index-url https://download.pytorch.org/whl/cu128",
+  "scope": "Index availability and matching installed package versions; no packages installed or upgraded. Not a fresh-environment installation test.",
+  "requirements_sha256": "81c688442d4a689aa2344b217157e6dc5d0be89424fd6bb35e1f1b0ee3e56abf"
+}

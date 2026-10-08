@@ -28,6 +28,10 @@ AdamW lr1e-4/wd.01, 최대20epoch/patience5, effective batch32/micro8, epoch별 
 
 ## 지표와 게시
 
-주지표 장면frame AUROC/4장면macro. AP/F1/TPR/FPR, event coverage/첫경보지연, 시간·VRAM·rank·설명분산. 단일클래스 영상AUROC NaN, 장면합산에는 포함. 영상경계간 event연결 금지. 주요개선량 paired bootstrap CI.
+주지표 장면frame AUROC/4장면macro. AP/F1/TPR/FPR, event coverage/첫경보지연, 시간·VRAM·rank·설명분산. 단일클래스 영상AUROC NaN, 장면합산에는 포함. 영상경계간 event연결 금지. 주요개선량 paired bootstrap CI. 최종 평가 전 고정하는 대조는 S+C+P−S, S+C−S, S+P−S, S+C+P−(S+P), S+C+P−(S+C), S+C−(S+C₀), S+C+P−(S+C₀+P)의 7개다. 각 구간은 다중 비교 보정 전 탐색적 구간이며 전체 개선과 연속 평균의 기여를 구분해 해석한다.
 
 results/00_prepare,01_baseline,02_lora,03_ablation에 누적. frame index·GT·scalar score 압축CSV로 GPU없이 재계산. raw영상·가중치·특징캐시는 로컬artifacts. 각 단계 완료시 README 표·그림·해석과 함께 main게시, 업로드 후 원격 파일·그림·commit 확인. 실패·하락도 기록한다.
+
+## Seed 해석
+
+실제 반복 실행의 seed는 최상위 `seeds = [42, 43, 44]`이다. 각 seed는 LoRA 초기화·표본화와 해당 cycle 모듈의 tracker PCA·균형 표본화·잔차 PCA에 적용된다. Descriptor의 random projection은 `encoder.projection_seed = 42`로 모든 반복에 고정한다. `cycle.seed = 42`는 원본 노트북 설정에서 유지된 기본값이며, 새 실험 파이프라인은 각 반복의 최상위 seed를 명시적으로 전달한다. 실제 seed와 descriptor 차원은 각 cycle fit report에도 기록한다.

@@ -4,13 +4,19 @@
 
 실험 순서는 **Frozen SubspaceAD → 정상 영상 LoRA의 채택 판단 → 선택한 백본에서 C/P ablation**입니다. 각 단계의 코드·로그·결과·그림을 함께 게시합니다. 아직 실행하지 않은 결과나 성능 개선을 주장하지 않습니다.
 
+핵심 아이디어는 **연속 진행도 조건부 평균–공유 잔차 부분공간 모델**입니다. 정상 특징을 아래처럼 표현합니다.
+
+$$z_t = \tilde\mu(\hat\phi_t) + U a_t + \varepsilon_t$$
+
+여기서 진행도 추정값 $\hat\phi_t$에 따라 정상 평균 $\tilde\mu$가 연속적으로 변하고, 잔차 기저 $U$는 모든 진행도에서 공유합니다. $\tilde\mu$는 정상 영상으로 학습한 Fourier 평균과 잔차 PCA의 중심을 합한 값입니다. C는 이 모델의 잔차 및 부분공간 내부 거리에서, P는 진행도 추적 오차에서 얻습니다.
+
 ## 진행 상태
 
 | 단계 | 상태 | 결과 |
 | --- | --- | --- |
 | 데이터·설정·구현 검증 | 완료 | [상세](results/00_prepare/report.md) |
 | Frozen SubspaceAD | 완료 | [상세](results/01_baseline/report.md) |
-| LoRA 학습·채택 판단 | 미실행 | — |
+| LoRA 학습·채택 판단 | 완료 | [상세](results/02_lora/report.md) |
 | 진행도 모듈 ablation | 미실행 | — |
 
 ## 방법과 평가 규약
@@ -69,13 +75,54 @@
 
 ## LoRA 학습·채택 판단
 
-미실행 또는 집계 전입니다.
+장면·seed 평균, 단위 %. 개발셋과 최종 평가셋을 구분합니다.
+
+| partition | branch | auroc | ap | f1 | tpr | fpr |
+| --- | --- | --- | --- | --- | --- | --- |
+| development | S | 73.007 | 63.118 | 18.106 | 11.645 | 2.480 |
+
+| partition | scene | branch | auroc | ap |
+| --- | --- | --- | --- | --- |
+| development | R01 | S | 64.977 | 48.926 |
+| development | R02 | S | 80.974 | 67.080 |
+| development | R03 | S | 73.016 | 76.941 |
+| development | R04 | S | 73.060 | 59.524 |
+
+![development_curves](results/02_lora/figures/development_curves.png)
+
+![development_performance](results/02_lora/figures/development_performance.png)
+
+![lora_vs_frozen](results/02_lora/figures/lora_vs_frozen.png)
+
+![normal_validation_loss](results/02_lora/figures/normal_validation_loss.png)
+
+![score_example](results/02_lora/figures/score_example.png)
+
+### 채택 판단
+
+**LoRA를 채택하지 않고 frozen DINOv2로 모듈 실험을 진행합니다.** 개발셋 macro AUROC는 frozen **73.13%**, LoRA seed 평균 **73.01%**입니다. 차이는 **-0.12%p**, 영상 단위 paired bootstrap 95% 구간은 **[-0.46, +0.16]%p**입니다.
+
+사전에 정한 두 조건(평균 +1%p 이상, 95% 하한 > 0)을 모두 만족할 때만 LoRA를 채택합니다. 정상 validation 손실 감소 자체를 이상 탐지 향상으로 해석하지 않습니다. 장면별로 유리한 백본을 따로 고르지 않았으며 최종 평가 라벨은 채택 판단에 사용하지 않았습니다.
+
+[채택 근거 JSON](results/02_lora/backbone_decision.json) · [frozen 대조표](results/02_lora/frozen_comparison.csv) · [학습 요약](results/02_lora/training_summary.csv)
+
+Seed별 macro AUROC는 **seed 42: 73.18%, seed 43: 72.95%, seed 44: 72.89%**입니다. [Seed별 성능표](results/02_lora/performance_by_seed.csv)에 AP와 frozen 대비 차이도 보존합니다. Bootstrap 구간은 관측된 세 seed 평균을 대상으로 영상 표집의 불확실성을 나타냅니다.
+
+### 학습 및 불확실성
+
+12개 fit 모두 정상 training/validation 영상만 사용했습니다. 원래 DINOv2 가중치의 학습 전후 SHA256 일치와 adapter 체크포인트 SHA256을 각 training 로그에 남겼습니다. 신뢰구간은 장면·라벨 유형 내 영상을 재표집하고 같은 표집을 모든 seed와 두 백본에 적용한 10,000회 결과입니다. 프레임이나 seed를 독립 표본으로 세지 않습니다. 원본 녹화 그룹을 알 수 없고 일부 strata의 영상 수가 작아 이 구간을 광범위한 일반화의 보장으로 해석할 수 없습니다.
+
+전체 LoRA 학습 기록 합계 237.9분, 관측 peak allocated VRAM 7.13GiB입니다. 평가 추출 비용은 별도의 영상 로그에 있습니다.
+
+[상세 분석·로그](results/02_lora/report.md)
 
 ## 진행도 모듈 ablation
 
 미실행 또는 집계 전입니다.
 
 ## 재현
+
+아래 명령은 이 실험의 Python 3.12·Linux·CUDA 12.8 구성을 기준으로 합니다. `requirements-lock.txt`에 [공식 PyTorch CUDA wheel 인덱스](https://pytorch.org/get-started/previous-versions/#v280)를 포함했습니다. 학습과 특징 추출에는 CUDA GPU가 필요하며, 저장된 결과의 검산과 보고서 생성은 CPU에서 실행할 수 있습니다.
 
 ```bash
 python -m pip install -r requirements-lock.txt
@@ -89,6 +136,8 @@ python -m ipad_experiment.pipeline report
 ```
 
 후속 단계 CLI는 `train-lora`, `select-backbone`, `ablation`입니다. 각 단계는 구현·검증 후 실행 상태를 갱신합니다. `report`는 저장된 점수·지표에서 그림과 README를 다시 생성하며 GPU가 필요하지 않습니다. [실행/분석 노트북](notebooks/Experiment.ipynb)을 함께 제공합니다.
+
+각 단계의 저장 점수는 `python scripts/recompute_metrics.py --run 02_lora`로 지표를 독립 재계산하고, `python scripts/verify_artifacts.py --run 02_lora --data-root /path/to/IPAD_dataset`으로 영상·프레임 범위와 원본 GT의 프레임별 일치를 검사할 수 있습니다. `--run`에는 검사할 단계 이름을 지정합니다.
 
 ## 결과 파일 정책
 

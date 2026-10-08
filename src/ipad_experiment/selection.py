@@ -2,7 +2,7 @@
 from __future__ import annotations
 import numpy as np
 import pandas as pd
-from .io import ROOT,init_run,complete_run,write_json,read_json,file_hash,log
+from .io import ROOT,init_run,complete_run,write_json,read_json,file_hash,log,source_identity
 from .data import load_rows
 from .evaluation import summarize
 
@@ -50,7 +50,7 @@ def paired_bootstrap(reference,candidate,reference_score,candidate_score,split_r
 def load_score_tables(out,partition="development"):
     groups={}
     for path in sorted((out/"scores").glob("*.csv.gz")):
-        df=pd.read_csv(path,dtype={"video":str})
+        df=pd.read_csv(path,dtype={"video":str},float_precision="round_trip")
         df=df[df.partition==partition]
         if not len(df):continue
         key=(str(df.scene.iloc[0]),int(df.seed.iloc[0]));groups.setdefault(key,[]).append(df)
@@ -59,6 +59,7 @@ def load_score_tables(out,partition="development"):
 def select_backbone(data_root,cfg):
     from .pipeline import baseline_scene
     out=init_run("02_lora",cfg);candidate={};thresholds={}
+    write_json(out/"selection_source.json",source_identity())
     for scene in cfg["scenes"]:
         for seed in cfg["seeds"]:
             report=out/"training"/f"{scene}_seed{seed}.json"

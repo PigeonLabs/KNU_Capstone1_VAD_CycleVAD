@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "partition": "development",
+  "scene_seed_video_files": 26,
+  "score_rows_including_seeds": 12954,
+  "unique_videos": 26,
+  "unique_frames": 12954,
+  "seeds": [
+    42
+  ],
+  "checks": [
+    "exact expected video coverage",
+    "contiguous full stride-1 frame coverage",
+    "finite scalar data",
+    "identical labels across seeds",
+    "normal/evaluation split separation",
+    "stage-specific adoption or frozen-protocol checks"
+  ]
+}

@@ -22,7 +22,7 @@ def save(fig,path):
     path.parent.mkdir(parents=True,exist_ok=True);fig.savefig(path,bbox_inches="tight",facecolor="white");plt.close(fig)
 
 def preparation():
-    out=ROOT/"results/00_prepare";df=pd.read_csv(out/"data_counts.csv")
+    out=ROOT/"results/00_prepare";df=pd.read_csv(out/"data_counts.csv",float_precision="round_trip")
     parts=["fit","validation","reference","threshold","development","final"]
     labels=["Fit","Normal validation","Reference","Threshold","Development","Final (reserved)"]
     colors=["#285F91","#81A3BF","#B5682B","#D8A47B","#728244","#B2B6B9"]
@@ -48,10 +48,10 @@ def preparation():
 def stage_figures(out):
     metrics_path=out/"metrics_by_scene.csv"
     if not metrics_path.exists(): return None
-    df=pd.read_csv(metrics_path)
+    df=pd.read_csv(metrics_path,float_precision="round_trip")
     mean=df.groupby(["partition","scene","branch"],sort=False)[["auroc","ap","f1","tpr","fpr"]].mean().reset_index()
     for part,part_df in mean.groupby("partition"):
-        branches=part_df.branch.unique();scenes=["R01","R02","R03","R04"]
+        branches=[b for b in COLORS if b in set(part_df.branch)];scenes=["R01","R02","R03","R04"]
         fig,axes=plt.subplots(1,2,figsize=(10,4.5),sharey=True)
         width=.75/len(branches);x=np.arange(4)
         for j,metric in enumerate(["auroc","ap"]):
@@ -60,10 +60,10 @@ def stage_figures(out):
                 bars=axes[j].bar(x+(k-(len(branches)-1)/2)*width,values,width,label=b,color=COLORS.get(b,"#70777E"))
                 if len(branches)<=2: axes[j].bar_label(bars,fmt="%.1f",padding=3,fontsize=9)
             axes[j].set(xticks=x,xticklabels=scenes,title=metric.upper(),ylim=(0,110),ylabel="Score (%)")
-        axes[0].legend(frameon=False);fig.suptitle(f"{out.name}: {part} evaluation")
+        axes[0].legend(frameon=False,ncol=2,fontsize=8);fig.suptitle(f"{out.name}: {part} evaluation")
         save(fig,out/f"figures/{part}_performance.png")
     scores=[]
-    for p in sorted((out/"scores").glob("*.csv.gz")): scores.append(pd.read_csv(p,dtype={"video":str}))
+    for p in sorted((out/"scores").glob("*.csv.gz")): scores.append(pd.read_csv(p,dtype={"video":str},float_precision="round_trip"))
     if scores:
         data=pd.concat(scores,ignore_index=True)
         for part in data.partition.unique():
@@ -89,7 +89,7 @@ def stage_figures(out):
     return mean
 
 def update_readme():
-    prep=ROOT/"results/00_prepare";counts=pd.read_csv(prep/"data_counts.csv")
+    prep=ROOT/"results/00_prepare";counts=pd.read_csv(prep/"data_counts.csv",float_precision="round_trip")
     stages=[("00_prepare","데이터·설정·구현 검증"),("01_baseline","Frozen SubspaceAD"),("02_lora","LoRA 학습·채택 판단"),("03_ablation","진행도 모듈 ablation")]
     status=[]
     for name,label in stages:
@@ -101,6 +101,12 @@ def update_readme():
 **연속 공정 진행도에 따라 정상 평균을 바꾸고 잔차 subspace를 공유하는 모듈의 유용성**을 IPAD R01–R04에서 검증합니다.
 
 실험 순서는 **Frozen SubspaceAD → 정상 영상 LoRA의 채택 판단 → 선택한 백본에서 C/P ablation**입니다. 각 단계의 코드·로그·결과·그림을 함께 게시합니다. 아직 실행하지 않은 결과나 성능 개선을 주장하지 않습니다.
+
+핵심 아이디어는 **연속 진행도 조건부 평균–공유 잔차 부분공간 모델**입니다. 정상 특징을 아래처럼 표현합니다.
+
+$$z_t = \\tilde\\mu(\\hat\\phi_t) + U a_t + \\varepsilon_t$$
+
+여기서 진행도 추정값 $\\hat\\phi_t$에 따라 정상 평균 $\\tilde\\mu$가 연속적으로 변하고, 잔차 기저 $U$는 모든 진행도에서 공유합니다. $\\tilde\\mu$는 정상 영상으로 학습한 Fourier 평균과 잔차 PCA의 중심을 합한 값입니다. C는 이 모델의 잔차 및 부분공간 내부 거리에서, P는 진행도 추적 오차에서 얻습니다.
 
 ## 진행 상태
 
@@ -125,7 +131,9 @@ def update_readme():
         out=ROOT/"results"/name;p=out/"metrics_by_scene.csv"
         text+=f"\n## {title}\n\n"
         if not p.exists():text+="미실행 또는 집계 전입니다.\n";continue
-        df=pd.read_csv(p);aggregate=df.groupby(["partition","branch"])[["auroc","ap","f1","tpr","fpr"]].mean().reset_index()
+        df=pd.read_csv(p,float_precision="round_trip")
+        if name=="03_ablation":df=df[df.branch.isin(COLORS)]
+        aggregate=df.groupby(["partition","branch"])[["auroc","ap","f1","tpr","fpr"]].mean().reset_index()
         for col in ["auroc","ap","f1","tpr","fpr"]:aggregate[col]*=100
         text+="장면·seed 평균, 단위 %. 개발셋과 최종 평가셋을 구분합니다.\n\n"+table(aggregate)+"\n\n"
         scene_table=df.groupby(["partition","scene","branch"])[["auroc","ap"]].mean().reset_index();scene_table[["auroc","ap"]]*=100
@@ -135,6 +143,8 @@ def update_readme():
         text+=f"[상세 분석·로그](results/{name}/report.md)\n"
     text+="""
 ## 재현
+
+아래 명령은 이 실험의 Python 3.12·Linux·CUDA 12.8 구성을 기준으로 합니다. `requirements-lock.txt`에 [공식 PyTorch CUDA wheel 인덱스](https://pytorch.org/get-started/previous-versions/#v280)를 포함했습니다. 학습과 특징 추출에는 CUDA GPU가 필요하며, 저장된 결과의 검산과 보고서 생성은 CPU에서 실행할 수 있습니다.
 
 ```bash
 python -m pip install -r requirements-lock.txt
@@ -149,6 +159,8 @@ python -m ipad_experiment.pipeline report
 
 후속 단계 CLI는 `train-lora`, `select-backbone`, `ablation`입니다. 각 단계는 구현·검증 후 실행 상태를 갱신합니다. `report`는 저장된 점수·지표에서 그림과 README를 다시 생성하며 GPU가 필요하지 않습니다. [실행/분석 노트북](notebooks/Experiment.ipynb)을 함께 제공합니다.
 
+각 단계의 저장 점수는 `python scripts/recompute_metrics.py --run 02_lora`로 지표를 독립 재계산하고, `python scripts/verify_artifacts.py --run 02_lora --data-root /path/to/IPAD_dataset`으로 영상·프레임 범위와 원본 GT의 프레임별 일치를 검사할 수 있습니다. `--run`에는 검사할 단계 이름을 지정합니다.
+
 ## 결과 파일 정책
 
 GitHub에는 코드·설정·분할·구조화 로그·지표·압축 프레임 점수 CSV·시각자료를 보관합니다. `results/<run_id>`의 manifest에 실행 코드 commit과 SHA256을 남깁니다. 원본 영상/프레임, 특징 캐시, 가중치와 체크포인트는 로컬 `artifacts/`에 보존합니다. 압축 CSV만으로 지표를 독립 재계산할 수 있습니다.
@@ -162,9 +174,11 @@ GitHub에는 코드·설정·분할·구조화 로그·지표·압축 프레임 
     (ROOT/"README.md").write_text(text)
 
 def report(run=None):
+    from .analysis import build_analysis
     preparation()
     for out in sorted((ROOT/"results").iterdir()):
         if not out.is_dir() or out.name=="00_prepare" or (run and out.name!=run):continue
+        if (out/"metrics_by_scene.csv").exists():build_analysis(out)
         mean=stage_figures(out)
         if mean is not None:
             body=f"# {out.name}\n\n"+table(mean)+"\n\n"

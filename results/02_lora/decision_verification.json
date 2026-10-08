@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "checks": [
+    "macro delta independently recovered from scene/seed metrics",
+    "CI quantiles match published 10000 bootstrap draws",
+    "selection source hashes match published source files"
+  ],
+  "selected_backbone": "frozen"
+}

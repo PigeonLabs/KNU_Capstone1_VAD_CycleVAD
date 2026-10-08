@@ -1,0 +1,101 @@
+{
+  "status": "passed",
+  "completed_fits": 12,
+  "expected_fits": 12,
+  "local_checkpoints_verified": true,
+  "checkpoint_fits_verified": 12,
+  "missing": [],
+  "checks": [
+    {
+      "scene": "R01",
+      "seed": 42,
+      "epochs": 20,
+      "best_epoch": 19,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 43,
+      "epochs": 20,
+      "best_epoch": 18,
+      "status": "passed"
+    },
+    {
+      "scene": "R01",
+      "seed": 44,
+      "epochs": 20,
+      "best_epoch": 19,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "epochs": 20,
+      "best_epoch": 19,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 43,
+      "epochs": 20,
+      "best_epoch": 17,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 44,
+      "epochs": 20,
+      "best_epoch": 18,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "epochs": 18,
+      "best_epoch": 12,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 43,
+      "epochs": 20,
+      "best_epoch": 18,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 44,
+      "epochs": 20,
+      "best_epoch": 17,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "epochs": 20,
+      "best_epoch": 19,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 43,
+      "epochs": 20,
+      "best_epoch": 15,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 44,
+      "epochs": 20,
+      "best_epoch": 17,
+      "status": "passed"
+    }
+  ],
+  "criteria": [
+    "contiguous epoch history",
+    "maximum epochs / early stopping respected",
+    "checkpoint selected by minimum normal validation loss",
+    "frozen parameter fingerprints unchanged",
+    "adapter checkpoint hash, parameter names, finite values and nonzero learned update when requested"
+  ]
+}

@@ -41,4 +41,5 @@ def summarize(tables,thresholds,branches):
 
 def save_scores(path,df):
     path.parent.mkdir(parents=True,exist_ok=True)
-    df.to_csv(path,index=False,float_format="%.12g",compression={"method":"gzip","mtime":0})
+    # Preserve threshold equality and close ranks after independent CSV reload.
+    df.to_csv(path,index=False,float_format="%.17g",compression={"method":"gzip","mtime":0})

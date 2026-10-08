@@ -1,0 +1,74 @@
+{
+  "status": "passed",
+  "performance_experiment": false,
+  "final_partition_used": false,
+  "backbone": "frozen",
+  "normal_only_inputs": {
+    "fit": [
+      "R01/training/04",
+      "R01/training/06"
+    ],
+    "validation": [
+      "R01/training/01"
+    ],
+    "reference": [
+      "R01/training/03"
+    ],
+    "threshold": [
+      "R01/training/02"
+    ]
+  },
+  "descriptor_dimension": 3072,
+  "tested_branches": [
+    "S",
+    "S+C",
+    "S+P",
+    "S+C+P",
+    "S+C0",
+    "S+C0+P",
+    "C",
+    "P",
+    "S+C_no_conf",
+    "S+alignment",
+    "S+innovation",
+    "S+progress"
+  ],
+  "conditional_rank": 64,
+  "constant_rank": 64,
+  "future_perturbation_prefix_max_abs_error": 0.0,
+  "seconds": 1.1415070870025374,
+  "scope": "Real feature dimensions and numerical/causal execution only; this small fit is discarded and never used in performance evaluation.",
+  "git_commit": "2a743d38d989ebe3308c9dd5c4e3934680727db9",
+  "source_sha256": "0862283fb1a0f81f68a338bd3b8a0c82dc2bce664cba4586ca856b1f8145451f",
+  "source_files": {
+    "configs/experiment.json": "f09023a31650139dd75d446e2024d1e876a10661522bb561883f49e7de5f3538",
+    "configs/provenance.json": "418aecb4298f54988993d9a28ad891dbf62068b4d1d4ddc692d6cd45f8780d0c",
+    "src/cycle_vad/__init__.py": "ab47ce51d870f2f66ac222ee01e24c4b14f5e444c5006b83bbeae87153f38b48",
+    "src/cycle_vad/data.py": "9cab26a1dcef0ffbf0261a22050dc6ce5ea6686232ecebba4ab47b94511ce090",
+    "src/cycle_vad/features.py": "75ad5c9ad88899673e551714d12f148777eebdc84957e325be306bae333c8ca2",
+    "src/cycle_vad/metrics.py": "472be8e184c6f8a069a2121f962dba569c4b930c0c9099dd24d7777e9f6473dc",
+    "src/cycle_vad/model.py": "ec4e793f242afec97ff48683a257a5fda0c82a71562809291f1c699790f25e6f",
+    "src/cycle_vad/pipeline.py": "003acb046c12c097e0f8810e83ab59a1a0af2e94b24f57f333a84140832fd57e",
+    "src/cycle_vad/tracker.py": "d5c92e75ad4934ac071f624bed1cdc368526ca6e2f453e43540cb9511c4443c2",
+    "src/ipad_experiment/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/ipad_experiment/ablation.py": "1ba9c2eb4154230a2990e7f9a02e238d9eee8cccb53c9844097987eec1774e3f",
+    "src/ipad_experiment/analysis.py": "2e99fb50d4c93d08d1347649a7fcab6d9d20cc54b4db520b94e65163faef3c15",
+    "src/ipad_experiment/data.py": "c3b2ef05a7c15c8e9fbb72a89da2eea9579075579fb15230929fc1fb378a791e",
+    "src/ipad_experiment/encoder.py": "e8b0c5837c7a40c72bb0b669486449df685fe1cd39014a2830ed912eb5bfdd82",
+    "src/ipad_experiment/evaluation.py": "b824348fe19fbce8a12a6197a5bc66c84368f14b835810f026e63bf7f14775fe",
+    "src/ipad_experiment/io.py": "bf06b2a252f0e957fdb715f12620ca93456fb97131bdf463bede17bcdaa2a8fb",
+    "src/ipad_experiment/lora.py": "9d136bb8ecf2a776efdb16cec1dd183d9f79070cbcd70bed2b6e4e31811d9bb0",
+    "src/ipad_experiment/pipeline.py": "d15abf037891cd5ab699737ece9c805dda6d4387db43aba54293fd95d868e76a",
+    "src/ipad_experiment/report.py": "b892926b78d7d2626d656734fa4a8032c7cd71dd4feb1a8cee02456f371958e6",
+    "src/ipad_experiment/selection.py": "6d8ca282495d075867b26fd3367be70cdd706ba5807a27c1978a6e1cc717056f",
+    "src/ipad_experiment/subspace.py": "57020339dc931926865eb2ab6bc04e0041e71aab3e2900d24a893d08c5152e30",
+    "vendor/subspacead/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "vendor/subspacead/core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "vendor/subspacead/core/extractor.py": "dda412ea5553da5a992ffa33fec5a7f5cb0d975d891be17f64baa855143faa3a",
+    "vendor/subspacead/core/pca.py": "e83e7b20eba67a691fa45da46ab49305f174ad05fec454414a684843b41396f6",
+    "vendor/subspacead/post_process/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "vendor/subspacead/post_process/scoring.py": "d29da82ae313bad4e95ecec09c4efddc0abd13aa86086c1e538bea76bfe5113f",
+    "vendor/subspacead/utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "vendor/subspacead/utils/common.py": "252f478924c4d28f876d7aa71a578cc2044af6bbfdd5cbaf4a6d5ea3fef53b68"
+  }
+}

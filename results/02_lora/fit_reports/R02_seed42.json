@@ -1,0 +1,14 @@
+{
+  "scene": "R02",
+  "seed": 42,
+  "encoder": "lora_seed42_b03efe474719",
+  "pca_rank": 323,
+  "retained_variance": 0.990001634417161,
+  "patch_count": 5827392,
+  "thresholds": {
+    "S": 4.328183402653059
+  },
+  "pca_eigendecomposition_seconds": 0.021450821004691534,
+  "peak_vram_bytes": 2568135680,
+  "normal_split_sha256": "3283d8f627a02194d3c6650e2da797941126f33dd492c0538228662978b00452"
+}

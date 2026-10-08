@@ -113,3 +113,15 @@ def test_summary_uses_gt_column_and_keeps_video_event_boundaries():
     videos,scenes=summarize({('R01',42):df},{('R01',42):{'S':1}},['S'])
     assert len(videos)==2 and scenes.iloc[0]['events']==2
     assert scenes.iloc[0]['auroc']==1 and scenes.iloc[0]['event_coverage']==1
+
+
+def test_score_csv_roundtrip_preserves_threshold_equality(tmp_path):
+    import pandas as pd
+    from ipad_experiment.evaluation import save_scores
+    threshold=float(-np.log(23/2349))
+    values=np.array([np.nextafter(threshold,-np.inf),threshold,np.nextafter(threshold,np.inf)])
+    path=tmp_path/'scores.csv.gz'
+    save_scores(path,pd.DataFrame({'S':values,'gt':[0,1,1]}))
+    actual=pd.read_csv(path,float_precision='round_trip').S.to_numpy()
+    np.testing.assert_array_equal(actual,values)
+    np.testing.assert_array_equal(actual>=threshold,[False,True,True])

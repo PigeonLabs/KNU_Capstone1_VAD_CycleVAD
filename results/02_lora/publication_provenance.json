@@ -1,0 +1,8 @@
+{
+  "training_source": {
+    "local_commit": "cb1fc18a688f04b419c5ad8ddef1111e61134fe1",
+    "published_commit": "1edecb2e4a5c4d41557b3a4dd44821a377082847",
+    "verified_tree_sha": "c4cabb7d27df3f1dcd5bf1aaa06af45d25eb878f"
+  },
+  "note": "GitHub connector publishes identical file trees with a separate commit history. Per-file SHA256 in run_manifest identifies training source; selection_source identifies subsequent evaluation code. Raw data, feature caches and checkpoints are excluded from the published tree."
+}

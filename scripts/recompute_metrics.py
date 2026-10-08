@@ -8,8 +8,8 @@ from sklearn.metrics import roc_auc_score,average_precision_score,f1_score
 ROOT=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser();parser.add_argument('--run',required=True);args=parser.parse_args()
 out=ROOT/'results'/args.run
-reported=pd.read_csv(out/'metrics_by_scene.csv');tables=[]
-for p in sorted((out/'scores').glob('*.csv.gz')):tables.append(pd.read_csv(p,dtype={'video':str}))
+reported=pd.read_csv(out/'metrics_by_scene.csv',float_precision="round_trip");tables=[]
+for p in sorted((out/'scores').glob('*.csv.gz')):tables.append(pd.read_csv(p,dtype={'video':str},float_precision="round_trip"))
 all_scores=pd.concat(tables,ignore_index=True);checks=[]
 for _,r in reported.iterrows():
     d=all_scores[(all_scores.scene==r.scene)&(all_scores.seed==r.seed)&(all_scores.partition==r.partition)].sort_values(['video','frame'])

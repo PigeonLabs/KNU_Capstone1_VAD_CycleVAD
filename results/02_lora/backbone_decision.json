@@ -1,0 +1,68 @@
+{
+  "mean_delta": -0.0012163366522074536,
+  "ci_low": -0.004596420465926552,
+  "ci_high": 0.0016377504887400095,
+  "scene_results": [
+    {
+      "scene": "R01",
+      "mean_delta": -0.006899298728921643,
+      "ci_low": -0.018960274016453792,
+      "ci_high": 0.0023677066807685524,
+      "seed_deltas": [
+        0.0013786039721689171,
+        -0.007021344227169447,
+        -0.0150551559317644
+      ],
+      "videos": 6
+    },
+    {
+      "scene": "R02",
+      "mean_delta": 0.0016502098871664604,
+      "ci_low": -0.0049656075264045444,
+      "ci_high": 0.006547499176156128,
+      "seed_deltas": [
+        0.0011087164939998615,
+        0.0003635783123124546,
+        0.0034783348551870653
+      ],
+      "videos": 5
+    },
+    {
+      "scene": "R03",
+      "mean_delta": 0.0002981292454976665,
+      "ci_low": -0.0010345686791745693,
+      "ci_high": 0.002261954166405018,
+      "seed_deltas": [
+        9.300798774482986e-05,
+        0.0005309531625321099,
+        0.0002704265862160599
+      ],
+      "videos": 7
+    },
+    {
+      "scene": "R04",
+      "mean_delta": 8.561298742770155e-05,
+      "ci_low": -0.001816041268771299,
+      "ci_high": 0.001356915753924226,
+      "seed_deltas": [
+        -0.000631786352477418,
+        -0.0009622087400861566,
+        0.0018508340548466793
+      ],
+      "videos": 8
+    }
+  ],
+  "bootstrap_samples": 10000,
+  "bootstrap_seed": 20261009,
+  "unit": "video within scene/label stratum; paired across methods and seeds",
+  "caveat": "Unknown original recording groups; very small strata constrain uncertainty estimates.",
+  "selected_backbone": "frozen",
+  "adopt_lora": false,
+  "criteria": {
+    "macro_auroc_min_delta": 0.01,
+    "ci_lower_strictly_positive": true,
+    "scope": "all_scenes_global"
+  },
+  "selection_partition": "development",
+  "no_final_results_used": true
+}

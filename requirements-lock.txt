@@ -1,3 +1,6 @@
+# CUDA wheel channel for the recorded torch/torchvision local versions.
+# https://pytorch.org/get-started/previous-versions/#v280
+--extra-index-url https://download.pytorch.org/whl/cu128
 torch==2.8.0+cu128
 torchvision==0.23.0+cu128
 transformers==4.57.1

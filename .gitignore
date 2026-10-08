@@ -1,0 +1,7 @@
+artifacts/
+IPAD_dataset/
+.venv/
+__pycache__/
+*.pt
+*.pth
+*.safetensors

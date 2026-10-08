@@ -9,8 +9,8 @@ for name in files:
     assert not any(x in p.parts for x in ["artifacts","IPAD_dataset",".venv"]),name
     assert p.suffix not in [".pt",".pth",".safetensors",".joblib",".npy",".npz",".mp4",".jpg"],name
     assert p.stat().st_size<20*1024**2, f"File requires sharding: {name}"
-text=(ROOT/"README.md").read_text()
-for link in re.findall(r'\]\(([^)]+)\)',text):
-    if '://' not in link and not link.startswith('#'):
-        assert (ROOT/link.split('#')[0]).exists(),link
-print(f"Artifact policy and README links passed: {len(files)} files")
+for doc in [ROOT/"README.md", *ROOT.glob("results/*/report.md")]:
+    for link in re.findall(r'\]\(([^)]+)\)',doc.read_text()):
+        if '://' not in link and not link.startswith('#'):
+            assert (doc.parent/link.split('#')[0]).exists(),f"{doc}: {link}"
+print(f"Artifact policy and report links passed: {len(files)} files")

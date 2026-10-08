@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "method": "independent sklearn metrics and per-video event scan from published CSV",
+  "checks": [
+    {
+      "scene": "R01",
+      "seed": 42,
+      "branch": "S",
+      "partition": "development",
+      "frames": 1346,
+      "status": "passed"
+    },
+    {
+      "scene": "R02",
+      "seed": 42,
+      "branch": "S",
+      "partition": "development",
+      "frames": 3209,
+      "status": "passed"
+    },
+    {
+      "scene": "R03",
+      "seed": 42,
+      "branch": "S",
+      "partition": "development",
+      "frames": 4813,
+      "status": "passed"
+    },
+    {
+      "scene": "R04",
+      "seed": 42,
+      "branch": "S",
+      "partition": "development",
+      "frames": 3586,
+      "status": "passed"
+    }
+  ]
+}

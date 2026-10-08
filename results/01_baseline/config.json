@@ -1,0 +1,109 @@
+{
+  "protocol_version": 1,
+  "scenes": [
+    "R01",
+    "R02",
+    "R03",
+    "R04"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "split_seed": 42,
+  "normal_fractions": [
+    0.55,
+    0.15,
+    0.15,
+    0.15
+  ],
+  "development_fraction": 0.4,
+  "stride": 1,
+  "encoder": {
+    "model_id": "facebook/dinov2-base",
+    "image_size": 336,
+    "baseline_layers": [
+      -4,
+      -5
+    ],
+    "cycle_layers": [
+      -1,
+      -3
+    ],
+    "patch_grid": 6,
+    "patch_dim": 64,
+    "projection_seed": 42,
+    "precision": "float32",
+    "batch_size": 32,
+    "workers": 8,
+    "preprocessing": "official_square_resize_no_crop"
+  },
+  "baseline": {
+    "pca_variance": 0.99,
+    "whiten": false,
+    "score": "reconstruction",
+    "drop_k": 0,
+    "aggregation": "mtop1p",
+    "post_process": "official_resize_gaussian_3_sigma4"
+  },
+  "lora": {
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.0,
+    "targets": [
+      "query",
+      "value"
+    ],
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "epochs": 20,
+    "patience": 5,
+    "effective_batch": 32,
+    "micro_batch": 8,
+    "frames_per_video": 128,
+    "validation_frames_per_video": 64,
+    "warmup_epochs": 1,
+    "clean_weight": 0.1,
+    "brightness": [
+      0.9,
+      1.1
+    ],
+    "contrast": [
+      0.9,
+      1.1
+    ],
+    "noise_std": [
+      0.0,
+      0.01
+    ]
+  },
+  "cycle": {
+    "cycle_grid": 128,
+    "cycle_latent": 24,
+    "seed": 42,
+    "harmonics_candidates": [
+      2,
+      4,
+      8
+    ],
+    "ridge_candidates": [
+      0.01,
+      0.1,
+      1.0
+    ],
+    "fit_samples": 4096,
+    "subspace_rank": 64,
+    "residual_variance": 0.95
+  },
+  "threshold_quantile": 0.99,
+  "bootstrap": {
+    "samples": 10000,
+    "seed": 20261009
+  },
+  "lora_adoption": {
+    "macro_auroc_min_delta": 0.01,
+    "ci_lower_strictly_positive": true,
+    "scope": "all_scenes_global"
+  }
+}

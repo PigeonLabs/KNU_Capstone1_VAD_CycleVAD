@@ -1,0 +1,14 @@
+{
+  "scene": "R01",
+  "seed": 42,
+  "encoder": "frozen",
+  "pca_rank": 281,
+  "retained_variance": 0.9900212619017024,
+  "patch_count": 2537856,
+  "thresholds": {
+    "S": 4.730921391293652
+  },
+  "pca_eigendecomposition_seconds": 0.08572465000179363,
+  "peak_vram_bytes": 2567756800,
+  "normal_split_sha256": "b763cbd337fa0d69ce4f17f98f14f383958a31e48432420f459d0bbd29c87068"
+}

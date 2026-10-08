@@ -28,11 +28,11 @@ def summarize(tables,thresholds,branches):
             t=thresholds[(scene_id,seed)][branch]
             summaries=[]
             for (vid,part),df in frames.groupby(["video","partition"],sort=True):
-                result=measure(df.gt,df[branch],t)
+                result=measure(df["gt"],df[branch],t)
                 record={"scene":scene_id,"seed":seed,"branch":branch,"video":str(vid),"partition":part,"threshold":t,**result}
                 video.append(record); summaries.append(record)
             for part,df in frames.groupby("partition",sort=True):
-                result=measure(df.gt,df[branch],t)
+                result=measure(df["gt"],df[branch],t)
                 sv=[r for r in summaries if r["partition"]==part]
                 ne=sum(r["events"] for r in sv); nd=sum(r["detected_events"] for r in sv); delay=sum(r["delay_sum"] for r in sv)
                 result.update(events=ne,detected_events=nd,delay_sum=delay,event_coverage=nd/ne if ne else np.nan,mean_detected_event_delay_frames=delay/nd if nd else np.nan)

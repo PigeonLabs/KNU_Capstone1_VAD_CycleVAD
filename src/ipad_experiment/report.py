@@ -9,6 +9,7 @@ from sklearn.metrics import roc_curve, precision_recall_curve
 from .io import ROOT, read_json, write_json
 
 COLORS={"S":"#285F91","S+C":"#B5682B","S+P":"#728244","S+C+P":"#A3507C","S+C0":"#70777E","S+C0+P":"#9A8555"}
+SCENE_COLORS={"R01":"#285F91","R02":"#B5682B","R03":"#728244","R04":"#A3507C"}
 plt.rcParams.update({"figure.dpi":140,"savefig.dpi":160,"font.size":10,"axes.spines.top":False,"axes.spines.right":False,"axes.grid":True,"grid.alpha":.18,"axes.axisbelow":True,"font.family":"DejaVu Sans"})
 
 def table(df):
@@ -68,9 +69,9 @@ def stage_figures(out):
         for part in data.partition.unique():
             fig,axes=plt.subplots(1,2,figsize=(10,4.5))
             for scene,sd in data[(data.partition==part)&(data.seed==data.seed.min())].groupby("scene"):
-                if sd.gt.nunique()<2: continue
-                fpr,tpr,_=roc_curve(sd.gt,sd.S);precision,recall,_=precision_recall_curve(sd.gt,sd.S)
-                axes[0].plot(fpr,tpr,label=scene);axes[1].plot(recall,precision,label=scene)
+                if sd["gt"].nunique()<2: continue
+                fpr,tpr,_=roc_curve(sd["gt"],sd.S);precision,recall,_=precision_recall_curve(sd["gt"],sd.S)
+                axes[0].plot(fpr,tpr,label=scene,color=SCENE_COLORS[scene]);axes[1].plot(recall,precision,label=scene,color=SCENE_COLORS[scene])
             axes[0].plot([0,1],[0,1],"--",color="#858585",linewidth=1)
             axes[0].set(xlabel="False positive rate",ylabel="True positive rate",title="S: ROC")
             axes[1].set(xlabel="Recall",ylabel="Precision",title="S: precision–recall")
@@ -79,10 +80,10 @@ def stage_figures(out):
         # Deterministic example: first mixed-label video by scene/video, not best-performing.
         candidates=data[data.seed==data.seed.min()].groupby(["scene","video","partition"],sort=True)
         for (scene,video,part),sd in candidates:
-            if sd.gt.nunique()!=2:continue
+            if sd["gt"].nunique()!=2:continue
             fig,ax=plt.subplots(figsize=(10,3.8));sd=sd.sort_values("frame")
             for b in [x for x in ["S","C","P","S+C+P"] if x in sd]:ax.plot(sd.frame,sd[b],label=b,linewidth=1.1)
-            ax.fill_between(sd.frame,0,1,where=sd.gt.astype(bool),transform=ax.get_xaxis_transform(),alpha=.14,color="#A3507C",label="GT anomaly")
+            ax.fill_between(sd.frame,0,1,where=sd["gt"].astype(bool),transform=ax.get_xaxis_transform(),alpha=.14,color="#A3507C",label="GT anomaly")
             ax.set(xlabel="Source frame index",ylabel="Calibrated score",title=f"{scene}/{video} · {part} · first mixed-label example")
             ax.legend(frameon=False,ncol=5);save(fig,out/"figures/score_example.png");break
     return mean
@@ -169,6 +170,8 @@ def report(run=None):
             body=f"# {out.name}\n\n"+table(mean)+"\n\n"
             for p in sorted((out/"figures").glob("*.png")):body+=f"![{p.stem}]({p.relative_to(out)})\n\n"
             body+="상세: [장면별 지표](metrics_by_scene.csv), [영상별 지표](metrics_by_video.csv), [실행 설정](config.json), [manifest](run_manifest.json), `logs/`, `scores/`.\n"
-            if (out/"interpretation.md").exists():body+="\n"+(out/"interpretation.md").read_text()
+            if (out/"interpretation.md").exists():
+                interpretation=(out/"interpretation.md").read_text()
+                body+="\n"+interpretation.replace(f"](results/{out.name}/", "](")
             (out/"report.md").write_text(body)
     update_readme()
